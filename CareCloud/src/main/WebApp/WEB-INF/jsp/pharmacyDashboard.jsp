@@ -34,7 +34,7 @@
     <div class="container">
         <h1 class="text-center">Welcome to the Pharmacy Dashboard</h1>
         <div class="text-right">
-            <a href="<c:url value='/pharmacy/logout' />" class="btn btn-danger">Logout</a>
+            <a href="/pharmacy/logout" class="btn btn-danger">Logout</a>
         </div>
         
         <div class="row">
@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <h5 class="card-title">View Prescriptions</h5>
                         <p class="card-text">Access all prescriptions from doctors.</p>
-                        <a href="<c:url value='/pharmacy/viewPrescriptions' />" class="btn btn-light">Go</a>
+                        <a href="/pharmacy/viewPrescriptions" class="btn btn-light">Go</a>
                     </div>
                 </div>
             </div>

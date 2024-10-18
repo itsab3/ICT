@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.model.Prescription;
 import com.example.demo.service.PharmacyLoginService;
+import com.example.demo.service.PrescriptionService;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/pharmacy")
 public class PharmacyController {
+	
+	@Autowired
+    private PrescriptionService prescriptionService;
 	
 	@Autowired
 	private PharmacyLoginService pharmacyLoginService;
@@ -36,4 +45,28 @@ public class PharmacyController {
         }
         return modelAndView;
     }
+    @GetMapping("/viewPrescriptions")
+    public ModelAndView viewPrescriptions() {
+        List<Prescription> prescriptions = prescriptionService.getAllPrescriptions();
+        
+        // Create a ModelAndView object and set the view name to 'viewPrescriptions'
+        ModelAndView mav = new ModelAndView("viewPrescriptions");
+        
+        // Add the prescriptions list as a model attribute
+        mav.addObject("prescriptions", prescriptions);
+        
+        return mav;  // Return the ModelAndView object
+    }
+    @GetMapping("/dashboard")
+    public String showdashboard() {
+    	return "pharmacyDashboard";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        // Invalidate the current session and redirect to the login page
+        request.getSession().invalidate();
+        return "redirect:/pharmacy/login";
+    }
+    
+    
 }

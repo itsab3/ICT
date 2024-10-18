@@ -16,6 +16,7 @@ public class Doctor {
     private Long id;
     private String name;
     private String specialization;
+    private String username;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
     private List<Prescription> prescriptions;
@@ -25,12 +26,11 @@ public class Doctor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Doctor(Long id, String name, String specialization, List<Prescription> prescriptions) {
+	public Doctor(String name, String specialization,String username) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.specialization = specialization;
-		this.prescriptions = prescriptions;
+		this.username=username;
 	}
 
 	public Long getId() {
@@ -63,6 +63,14 @@ public class Doctor {
 
 	public void setPrescriptions(List<Prescription> prescriptions) {
 		this.prescriptions = prescriptions;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Override

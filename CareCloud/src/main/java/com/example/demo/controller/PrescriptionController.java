@@ -25,31 +25,31 @@ public class PrescriptionController {
     }
 
     // Get all prescriptions
-    @GetMapping
-    public ResponseEntity<List<Prescription>> getAllPrescriptions() {
-        List<Prescription> prescriptions = prescriptionService.getAllPrescriptions();
-        return ResponseEntity.ok(prescriptions);
-    }
-
-    // Get a prescription by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Prescription> getPrescriptionById(@PathVariable Long id) {
-        return prescriptionService.getPrescriptionById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    // Update a prescription
-    @PutMapping("/{id}")
-    public ResponseEntity<Prescription> updatePrescription(@PathVariable Long id, @RequestBody Prescription prescriptionDetails) {
-        Prescription updatedPrescription = prescriptionService.updatePrescription(id, prescriptionDetails);
-        return ResponseEntity.ok(updatedPrescription);
-    }
-
-    // Delete a prescription
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePrescription(@PathVariable Long id) {
-        prescriptionService.deletePrescription(id);
-        return ResponseEntity.noContent().build();
-    }
+//    @GetMapping
+//    public ResponseEntity<List<Prescription>> getAllPrescriptions() {
+//        List<Prescription> prescriptions = prescriptionService.getAllPrescriptions();
+//        return ResponseEntity.ok(prescriptions);
+//    }
+//
+//    // Get a prescription by ID
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Prescription> getPrescriptionById(@PathVariable Long id) {
+//        return prescriptionService.getPrescriptionById(id)
+//                .map(ResponseEntity::ok)
+//                .orElse(ResponseEntity.notFound().build());
+//    }
+//
+//    // Update a prescription
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Prescription> updatePrescription(@PathVariable Long id, @RequestBody Prescription prescriptionDetails) {
+//        Prescription updatedPrescription = prescriptionService.updatePrescription(id, prescriptionDetails);
+//        return ResponseEntity.ok(updatedPrescription);
+//    }
+//
+//    // Delete a prescription
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deletePrescription(@PathVariable Long id) {
+//        prescriptionService.deletePrescription(id);
+//        return ResponseEntity.noContent().build();
+//    }
 }

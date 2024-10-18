@@ -42,4 +42,7 @@ public class DoctorService {
     public void deleteDoctor(Long id) {
         doctorRepository.deleteById(id);
     }
+    public Doctor findDoctorByUsername(String username) {
+        return doctorRepository.findByUsername(username);
+    }
 }

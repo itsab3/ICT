@@ -28,37 +28,33 @@
         .card:hover {
             transform: scale(1.05);
         }
+        .center-card {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">Welcome to the Doctor Dashboard</h1>
+        <h1 class="text-center mt-4">Welcome, ${doctor.name}!</h1>
         <div class="text-right">
-            <a href="<c:url value='/doctor/logout' />" class="btn btn-danger">Logout</a>
+            <a href="/doctor/logout" class="btn btn-danger">Logout</a>
         </div>
         
-        <div class="row">
+        <!-- Centering the Add Prescription Card -->
+        <div class="row center-card">
             <div class="col-md-6">
                 <div class="card text-white bg-primary">
                     <div class="card-body">
                         <h5 class="card-title">Add Prescription</h5>
                         <p class="card-text">Create new prescriptions for your patients.</p>
-                        <a href="<c:url value='/doctor/addPrescription' />" class="btn btn-light">Go</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card text-white bg-warning">
-                    <div class="card-body">
-                        <h5 class="card-title">View Prescriptions</h5>
-                        <p class="card-text">Review all prescriptions for your patients.</p>
-                        <a href="<c:url value='/doctor/viewPrescriptions' />" class="btn btn-light">Go</a>
+                        <a href="/doctor/addPrescription?doctorId=${doctor.id}" class="btn btn-light">Go</a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <h2>Your Patients</h2>
+        <h2 class="text-center">Your Patients</h2>
         <!-- Placeholder for patient list or details -->
     </div>
     
